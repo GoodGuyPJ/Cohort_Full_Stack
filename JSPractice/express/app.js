@@ -13,6 +13,7 @@ const path = require("path");
 const port = 3000;
 const bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.json());
 
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "/index.html"));
@@ -26,6 +27,9 @@ app.post("/api/v1/register", (req, res) => {
   res.json({
     success: true,
     message: "User registered successfully",
+    name: userName,
+    email: email,
+    password: password,
   });
 });
 
