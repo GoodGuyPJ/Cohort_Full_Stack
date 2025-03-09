@@ -1,1 +1,1 @@
-// new learning step by last
+// new learning step by launching a new project
