@@ -5,11 +5,4 @@
 console.log("Hello World");
 
 async with await
-promise with .then function useCallback(
-  () => {
-    first
-  },
-  [second],
-)
-
-call backhell
+ 
