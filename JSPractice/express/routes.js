@@ -1,6 +1,8 @@
 const express = require("express");
 const app = express();
-const port = 3000;
+require("dotenv").config();
+
+const port1 = process.env.PORT || 3000;
 
 // get route
 app.get("/", (req, res) => {
@@ -22,6 +24,6 @@ app.delete("/delete/:id", (req, res) => {
   res.send("Hello from DELETE route!");
 });
 
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
+app.listen(port1, () => {
+  console.log(`Server is running on http://localhost:${port1}`);
 });
