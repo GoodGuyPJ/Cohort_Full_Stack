@@ -1,4 +1,4 @@
-const express = require('express');
+const express = require("express");
 
 const app = express();
 /*
@@ -37,33 +37,38 @@ app.get("/ride1", isOldEnoughMiddleware, function(req, res) {
 });
 */
 
+let requestCount = 0;
 
+function countRequest(req, res, next) {
+  requestCount++;
+  console.log("Request count: ", requestCount);
+  next();
+}
 
-function isOldEnoughMiddleware(req, res, next){
+function isOldEnoughMiddleware(req, res, next) {
   const age = req.query.age;
-  if(age >= 14){
+  if (age >= 14) {
     next();
-  }else{
+  } else {
     res.json({
-      msg: "Sorry you are not of age yet"
-    })
+      msg: "Sorry you are not of age yet",
+    });
   }
 }
 
 // app.use(isOldEnoughMiddleware); // This will run for all routes
+app.use(countRequest);
 
-app.get("/ride2", isOldEnoughMiddleware, function(req, res) {
-  
+app.get("/ride2", isOldEnoughMiddleware, function (req, res) {
   res.json({
-    msg: "You have successfully requested ride 2"
-  })
+    msg: "You have successfully requested ride 2",
+  });
 });
 
-
-app.get("/ride1", isOldEnoughMiddleware, function(req, res) {
+app.get("/ride1", isOldEnoughMiddleware, function (req, res) {
   res.json({
-    msg: "You have successfully requested ride 1"
-  })
+    msg: "You have successfully requested ride 1",
+  });
 });
 
-app.listen(3000)
+app.listen(3000);
