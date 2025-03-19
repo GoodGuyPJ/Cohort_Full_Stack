@@ -27,8 +27,11 @@ function userExists(username, password) {
   // write logic to return true or false if this user exists
   // in ALL_USERS array
   let userExist = false;
-  for(let i=0; i<ALL_USERS.length; i++){
-    if(ALL_USERS[i].username == username && ALL_USERS[i].password == password){
+  for (let i = 0; i < ALL_USERS.length; i++) {
+    if (
+      ALL_USERS[i].username == username &&
+      ALL_USERS[i].password == password
+    ) {
       userExist = true;
     }
   }
@@ -59,16 +62,14 @@ app.get("/users", function (req, res) {
     // return a list of users other than this username
 
     res.json({
-      users: ALL_USERS.filter(function(value){
-        if(value.username == username){
+      users: ALL_USERS.filter(function (value) {
+        if (value.username == username) {
           return false;
         } else {
           return true;
         }
-      })
-    })
-
-
+      }),
+    });
   } catch (err) {
     return res.status(403).json({
       msg: "Invalid token",
@@ -79,4 +80,3 @@ app.get("/users", function (req, res) {
 app.listen(3001, function () {
   console.log("Server started on http://localhost:3001");
 });
- 
