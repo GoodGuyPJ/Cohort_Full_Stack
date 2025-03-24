@@ -1,4 +1,4 @@
 //what is database?
 // It is a place where we can store data in an organized way. It is a collection of data that is stored in a computer system. Databases are used to store, retrieve, and manage data. It is a structured set of data held in a computer, especially one that is accessible in various ways.
 
-// servers autoscale to handle the load, and the database is the bottleneck. The database is
+// servers autoscale to handle the load, and the database is the bottleneck. The database is the most important part of the application. It is the most important part of the application because it is where all the data is stored. If the database goes down, the application goes down. If the database is slow, the application is slow. If the database is not reliable, the application is not reliable. The database is the most important part of the application because it is where all the data is stored. If the database goes down, the application goes down. If the database is slow, the application is slow. If the database is not reliable, the application is not reliable.
