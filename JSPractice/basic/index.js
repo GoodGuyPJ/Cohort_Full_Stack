@@ -114,3 +114,28 @@ let interval = setInterval(showTime, 1000);
 button.addEventListener("click", () => {
   clearInterval(interval);
 });
+
+// Closure in Javascript - is the combination of function bundled together with references to its surrounding state (lexical environment). In other words, a closure gives you access to an outer function’s scope from an inner function.
+function Main() {
+  const name = "John";
+  function displayName() {
+    console.log(name);
+  }
+  return displayName();
+}
+
+let fn = Main();
+fn();
+
+//Currying in Javascript | JS Interview Questions
+function add(a) {
+  return function (b) {
+    return a + b;
+  };
+}
+
+let add5 = add(5);
+console.log(add5(5));
+console.log(adds(1)(2));
+
+// Composition in Javascript
