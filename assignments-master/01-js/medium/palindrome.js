@@ -4,6 +4,19 @@
 */
 
 function isPalindrome(str) {
+  let cleanedStr = str.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
+  let reversedStr = cleanedStr.split("").reverse().join("");
+  if (cleanedStr.length !== reversedStr.length) {
+    return false;
+  }
+  for (let i = 0; i < cleanedStr.length; i++) {
+    if (cleanedStr[i] !== reversedStr[i]) {
+      return false;
+    }
+  }
+  // If the cleaned string and reversed string are equal, it's a palindrome
+  // If the cleaned string and reversed string are equal, it's a palindrome
+  // If the cleaned string and reversed string are equal, it's a palindrome
   return true;
 }
 
