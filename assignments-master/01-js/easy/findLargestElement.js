@@ -12,6 +12,7 @@ function findLargestElement(numbers) {
       largest = number;
     }
   });
+  return largest;
 }
 
 module.exports = findLargestElement;
