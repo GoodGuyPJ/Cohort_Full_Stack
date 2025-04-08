@@ -16,5 +16,15 @@
     "express": "^4.21.2",
     "nodemon": "^3.1.9",
     "pokemon": "^3.3.0"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GoodGuyPJ/express.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/GoodGuyPJ/express/issues"
+  },
+  "homepage": "https://github.com/GoodGuyPJ/express#readme"
 }
