@@ -31,3 +31,19 @@ let clock = setInterval(() => {
   console.clear();
   console.log(date.toLocaleTimeString());
 }, 1000);
+
+const { response } = require("express");
+const zod = require("zod");
+function validation(obj) {
+  const schmea = zod.object({
+    emal: zod.string().email(),
+    password: zod.string().min(8),
+  });
+  const response = schmea.safeParse(obj);
+  console.log(response);
+}
+
+validation({
+  email: "new@gmail",
+  password: "pass",
+});
