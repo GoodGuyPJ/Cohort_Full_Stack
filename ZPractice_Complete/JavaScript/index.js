@@ -32,6 +32,7 @@ let clock = setInterval(() => {
   console.log(date.toLocaleTimeString());
 }, 1000);
 
+
 const { response } = require("express");
 const zod = require("zod");
 function validation(obj) {
@@ -47,3 +48,6 @@ validation({
   email: "new@gmail",
   password: "pass",
 });
+
+
+
