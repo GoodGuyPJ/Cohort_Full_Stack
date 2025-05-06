@@ -62,4 +62,88 @@ const double = (x: number, y: number) => x*y;
 const res = double(2,3);
 console.log(res); // Output: 6
 
-//
+//Default Params Value
+function greet(person: string, greeting: string = "Hello"): string {
+  return `${greeting}, ${person}!`;
+} 
+
+
+//Return Annotaitons(Regular)
+function double1(num: number): number{
+  return num * 2;
+}
+
+//Return Annotaitons(Arrow)
+const double2 = (num: number): number => num * 2;
+const result = double2(5);
+
+// Void in TypeScript -> is a type that represents the absence of a value. It is often used as the return type for functions that do not return a value. In other words, if a function does not return anything, you can use void as its return type.
+function logMessage(message: string): void {
+  console.log(message);
+}
+logMessage("Hello, World!"); // Output: Hello, World!
+
+
+//Never -> is used to indicate that a function will never return a value. This can happen if the function always throws an error or if it enters an infinite loop. The never type is useful for functions that are not meant to return a value, such as error handling functions or functions that terminate the program.
+// A fucntion that never returns a value
+function throwError(message: string): never {
+  throw new Error(message);
+}
+
+// A function that enters an infinite loop
+function infiniteLoop(): never {
+  while (true) {
+    console.log("This will run forever!");
+  }
+}
+
+// A function that never returns a value
+function doNothing(): never {
+  // This function does nothing and never returns a value
+}
+doNothing(); // This will not produce any output
+
+
+// Arays Types -> Arays are a type of object that can store mutiple values of the same type. 
+// 2 types array -> 1. Homogeneous Array 2. Heterogeneous Array
+
+const numbers: number[] = [1, 2, 3, 4, 5]; // Homogeneous array of numbers
+const names: string[] = ["John", "Jane", "Doe"]; // Homogeneous array of strings
+
+const mixed: (string | number)[] = ["John", 1, "Doe", 2]; // Heterogeneous array of strings and numbers
+const mixed2: Array<string | number> = ["John", 1, "Doe", 2]; // Heterogeneous array of strings and numbers
+
+const mixed3: Array<any> = ["John", 1, "Doe", 2]; // Heterogeneous array of strings and numbers
+
+
+//Multi-Dimensional Arrays -> are arrays that contain other arrays as their elements. They can be used to represent matrices, grids, or any other data structure that requires multiple dimensions.
+const matrix: number[][] = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9]
+]; // A 2D array (matrix) of numbers
+console.log(matrix[0][0]); // Output: 1
+
+
+//Objects -> in typescript is a structured data tpe that represents a collection of key-value pairs. Each key is a string, and the value can be of any type, including other objects, arrays, or primitive types. Objects are used to group related data and functions together, making it easier to manage and organize code.
+
+// type varName(annotations/types) = {property: value}
+const person1: { name: string; age: number; isStudent: boolean } = {
+  name: "John",
+  age: 25,
+  isStudent: true
+}; // Object with properties name, age, and isStudent
+console.log(person1.name); // Output: John
+
+
+function printUser(): {name: string; age: number; location: string} {
+  return {
+    name: "Alex",
+    age: 19,
+    location: "USA"
+  }
+}
+
+const user = printUser();
+console.log(user.name); // Output: Alex
+
