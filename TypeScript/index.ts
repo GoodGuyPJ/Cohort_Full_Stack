@@ -147,3 +147,23 @@ function printUser(): {name: string; age: number; location: string} {
 const user = printUser();
 console.log(user.name); // Output: Alex
 
+
+//Type Aliases -> are a way to create a new name for an existing type. This can be useful for creating more descriptive names for complex types or for creating reusable types that can be used in multiple places in your code.
+type User = {
+  name: string;
+  age: number;
+  location: string;
+};
+
+function printUser1(pesron: User){
+  console.log(`Name: ${pesron.name}, Age: ${pesron.age}, Location: ${pesron.location}`);
+}
+
+let myUser: User = {
+  name: "John",
+  age: 25,
+  location: "USA"
+}
+printUser1(myUser); // Output: Name: John, Age: 25, Location: USA
+
+
