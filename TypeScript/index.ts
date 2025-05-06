@@ -148,6 +148,23 @@ const user = printUser();
 console.log(user.name); // Output: Alex
 
 
+
+
+function printUser2(): {name: string, age: number} {
+  return {
+    name: "Alex",
+    age: 19
+  }
+}
+
+const user2 = printUser2();
+console.log(user2.name); // Output: Alex
+
+
+//Object Type Annotations -> are used to specify the types of properties in an object. This helps TypeScript check the types of properties and provides better type safety.
+
+
+
 //Type Aliases -> are a way to create a new name for an existing type. This can be useful for creating more descriptive names for complex types or for creating reusable types that can be used in multiple places in your code.
 type User = {
   name: string;
@@ -167,3 +184,33 @@ let myUser: User = {
 printUser1(myUser); // Output: Name: John, Age: 25, Location: USA
 
 
+//Optinal Properties -> are properties that may or may not be present in an object. This is useful when you want to allow for flexibility in the structure of an object, such as when some properties are optional and others are required.
+type User1 = {
+  name: string;
+  age: number;
+  location?: string; // Optional property
+};
+
+const user: User1 = {
+  name: "John",
+  age: 25,
+  // location is optional and can be omitted
+};
+console.log(user.name); // Output: John
+ 
+
+//Readonly Properties -> are properties that cannot be changed after they are set. This is useful when you want to create immutable objects or when you want to prevent accidental changes to certain properties.
+type User2 = {
+  readonly name: string; // Readonly property
+  age: number;
+};
+
+const user2: User2 = {
+  name: "John",
+  age: 25,
+};
+user2.name = "Doe"; // Error: Cannot assign to 'name' because it is a read-only property
+console.log(user2.name); // Output: John
+
+
+//Intersection Types -> are a way to combine multiple types into a single type. This allows you to create more complex types that can have properties from multiple types. Intersection types are created using the & operator.
