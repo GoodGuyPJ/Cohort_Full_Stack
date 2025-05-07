@@ -214,3 +214,44 @@ console.log(user2.name); // Output: John
 
 
 //Intersection Types -> are a way to combine multiple types into a single type. This allows you to create more complex types that can have properties from multiple types. Intersection types are created using the & operator.
+
+type Person1 = {
+  name: string;
+  age: number;
+};
+
+type Address = {
+  street: string;
+  city: string;
+};
+
+type PersonWithAddress = Person1 & Address; // Intersection type
+
+const John: PersonWithAddress = {
+  name: "John",
+  age: 25,
+  street: "123 Main St",
+  city: "New York", 
+};
+console.log(John.name); // Output: John
+console.log(John.street); // Output: 123 Main St
+
+//Union Types -> are a way to specify that a variable can be one of multiple types. This allows you to create more flexible and reusable code. Union types are created using the | operator.
+type StringOrNumber = string | number; // Union type
+
+function foo(param: string | number) {
+  if (typeof param === "string") {
+    console.log(`String: ${param}`);
+  } else if (typeof param === "number") {
+    console.log(`Number: ${param}`);
+  }
+}
+foo("Hello"); // Output: String: Hello
+
+interface MyInterface {
+  myProp: string | number; // Union type in interface
+}
+const obj: MyInterface = {
+  myProp: "Hello",
+};
+console.log(obj.myProp); // Output: Hello
