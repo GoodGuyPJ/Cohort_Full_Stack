@@ -275,4 +275,68 @@ let user: UserInfo & AccountInfo = {
   email: "john@gmial.com",
   password: "123456",
   isActive: true
-}
+  let password : string | number = 20
+
+  type UserInfo = {
+      first: string;
+      last: string;
+      age: number;
+  }
+  
+  type AccountDetails = {
+      email: string;
+      password: string;
+  }
+  
+  let user: UserInfo | AccountDetails = {
+      first: 'John',
+      email: 'email@gmail.com',
+      password: 'passowrd'
+  }
+  
+  const items: (number | string)[] = [1,5,5, 'hello']
+  console.log(items);
+  
+  
+  //Literals Types -> allow you to specify a value that can only be one specific literal value. This means that a variable with a literal type can only have one specific value and no other.
+  
+  let color: "red" | "blue" | "green";
+  color = "red";
+  color: "yellow"; // invalid
+  
+  let isTrue: true | false;
+  isTrue = false;
+  
+  let passowrd: "secretPassword" = "secretPassword";
+  passowrd = "something else";
+  
+  console.log(passowrd);
+  
+  
+  //Tuples -> is a type represents an array with a fixed number of elements, where each element can have a different type. The order of the types in the tuple defination coresponds to the order of the elements in the array. Tuples are useful when you want to group together a fixed number of values of different types into a single entity.
+  
+  let myTuple: [string, number] = ["hello", 5];
+  let [first, second] = myTuple;
+  console.log(first); // hello
+  console.log(second); // 5
+  
+  const products: (number | string)[] = [1, 2, 3, "hello", "world"];
+  
+  const games: [string, number, boolean] = ["game 1", 20, true];
+  const [name, price, isAvailable] = games;
+  console.log(name); // game 1
+  console.log(price); // 20
+  console.log(isAvailable); // true
+  
+  
+  //Enums -> is a way to define a set of named constants. Enums are useful when you want to represent a collection of related values that can be used in your code. Enums can be numeric or string-based.
+  enum WeatherConditions {
+      Sunny,
+      Rainy,
+      Cloudy,
+      Snowy,
+      Windy,
+  }
+  
+  
+  }
