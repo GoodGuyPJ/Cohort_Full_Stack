@@ -255,3 +255,24 @@ const obj: MyInterface = {
   myProp: "Hello",
 };
 console.log(obj.myProp); // Output: Hello
+
+type UserInfo = {
+  firstName: string;
+  lastName: string;
+  age: number;
+}
+
+type AccountInfo = {
+  email: string;
+  password: string;
+  isActive: boolean;
+}
+
+let user: UserInfo & AccountInfo = {
+  firstName: "John",
+  lastName: "Doe",
+  age: 25,
+  email: "john@gmial.com",
+  password: "123456",
+  isActive: true
+}
