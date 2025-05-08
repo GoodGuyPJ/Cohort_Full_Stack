@@ -331,12 +331,37 @@ let user: UserInfo & AccountInfo = {
   
   //Enums -> is a way to define a set of named constants. Enums are useful when you want to represent a collection of related values that can be used in your code. Enums can be numeric or string-based.
   enum WeatherConditions {
-      Sunny,
-      Rainy,
-      Cloudy,
-      Snowy,
-      Windy,
+      Sunny = "Sunny",
+      Rainy = "Rainy",
+      Cloudy = "Cloudy",
+      Snowy = "Snowy",
+
   }
+
+  const todayWeather: WeatherConditions = WeatherConditions.Sunny;
+  console.log(todayWeather); // Output: Sunny
+  console.log(WeatherConditions.Rainy); // Output: Rainy
   
-  
+
+
+  // OOPS -> Object-Oriented Programming (OOP) is a programming paradigm that uses objects and classes to structure code. TypeScript supports OOP concepts such as classes, inheritance, encapsulation, and polymorphism. OOP allows you to create reusable and modular code, making it easier to manage and maintain large codebases.
+  // In TypeScript, you can define classes using the class keyword. A class is a blueprint for creating objects, and it can contain properties (data) and methods (functions) that operate on that data. Classes can also have constructors, which are special methods used to initialize objects when they are created.
+
+  //Class Properties Annotations
+class Person10{
+  name: string;
+  age: number;
+
+  constructor(name: string, age: number){
+    this.name = name;
+    this.age = age;
   }
+  greet(){
+    console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
+  }
+}
+
+let person10 = new Person10("John", 25);
+person10.greet(); // Output: Hello, my name is John and I am 25 years old.
+
+//Access Modifiers -> are keywords that control the visibility and accessibility of class members (properties and methods). TypeScript provides three access modifiers: public, private, and protected.
