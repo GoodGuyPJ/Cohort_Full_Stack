@@ -442,5 +442,229 @@ console.log(student.name); // Error: Property 'name' is protected and only acces
 student.greet(); // Output: Hello, my name is John and I am 25 years old. My student ID is 12345
 
 
+//Getter and Setter -> are special methods that allow you to define custom behavior for accessing and modifying properties of a class. Getters are used to retrieve the value of a property, while setters are used to set the value of a property. This allows you to encapsulate the logic for getting and setting properties, providing better control over how they are accessed and modified.
+class Person14{
+  private _name: string;
+  private _age: number;
 
+  constructor(name: string, age: number){
+    this._name = name;
+    this._age = age;
+  }
+  get name(): string {
+    return this._name;
+  }
+  set name(value: string) {
+    this._name = value;
+  }
+  get age(): number {
+    return this._age;
+  }
+  set age(value: number) {
+    if (value < 0) {
+      throw new Error("Age cannot be negative.");
+    }
+    this._age = value;
+  }
+}
+
+let person14 = new Person14("John", 25);
+console.log(person14.name); // Output: John
+person14.name = "Doe";
+console.log(person14.name); // Output: Doe
+
+
+//Inheritance -> is a fundamental concept in object-oriented programming that allows you to create new classes based on existing classes. The new class, called the subclass or derived class, inherits properties and methods from the existing class, called the superclass or base class. This allows you to create a hierarchy of classes and promote code reuse.
+class Animal {
+  constructor(public name: string) {}
+  makeSound() {
+    console.log(`${this.name} makes a sound.`);
+  }
+}
+class Dog extends Animal {
+  makeSound() {
+    console.log(`${this.name} barks.`);
+  }
+}
+class Cat extends Animal {
+  makeSound() {
+    console.log(`${this.name} meows.`);
+  }
+}
+const dog = new Dog("Buddy");
+const cat = new Cat("Whiskers");
+dog.makeSound(); // Output: Buddy barks.
+cat.makeSound(); // Output: Whiskers meows.
+
+//Polymorphism -> is a concept in object-oriented programming that allows objects of different classes to be treated as objects of a common superclass. This enables you to write code that can work with different types of objects in a uniform way, promoting code reuse and flexibility.
+class Animal1 {
+  makeSound() {
+    console.log("Animal makes a sound.");
+  }
+}
+class Dog1 extends Animal1 {
+  makeSound() {
+    console.log("Dog barks.");
+  }
+}
+class Cat1 extends Animal1 {
+  makeSound() {
+    console.log("Cat meows.");
+  }
+}
+function makeAnimalSound(animal: Animal1) {
+  animal.makeSound();
+}
+const dog1 = new Dog1();
+const cat1 = new Cat1();
+makeAnimalSound(dog1); // Output: Dog barks.
+makeAnimalSound(cat1); // Output: Cat meows.
+//Abstract Classes -> are classes that cannot be instantiated directly and are meant to be subclassed. They can contain abstract methods (methods without an implementation) that must be implemented by derived classes. Abstract classes are useful for defining a common interface for a group of related classes while allowing each subclass to provide its own implementation.
+abstract class Shape {
+  abstract area(): number; // Abstract method
+  abstract perimeter(): number; // Abstract method
+}
+
+class Rectangle extends Shape {
+  constructor(private width: number, private height: number) {
+    super();
+  }
+  area(): number {
+    return this.width * this.height;
+  }
+  perimeter(): number {
+    return 2 * (this.width + this.height);
+  }
+}
+
+class Circle extends Shape {
+  constructor(private radius: number) {
+    super();
+  }
+  area(): number {
+    return Math.PI * this.radius * this.radius;
+  }
+  perimeter(): number {
+    return 2 * Math.PI * this.radius;
+  }
+}
+const rectangle = new Rectangle(5, 10);
+const circle = new Circle(5);
+console.log(`Rectangle Area: ${rectangle.area()}`); // Output: Rectangle Area: 50
+console.log(`Circle Area: ${circle.area()}`); // Output: Circle Area: 78.53981633974483
+console.log(`Rectangle Perimeter: ${rectangle.perimeter()}`); // Output: Rectangle Perimeter: 30
+console.log(`Circle Perimeter: ${circle.perimeter()}`); // Output: Circle Perimeter: 31.41592653589793
+
+// Interfaces -> are a way to define a contract for classes. They specify the structure of an object, including its properties and methods, without providing an implementation. Interfaces are useful for defining common behavior that can be shared among different classes, allowing you to create more flexible and reusable code.
+interface Employee {
+  firstName: string;
+  lastName: string;
+  age: number;
+}
+
+//usage
+const exampleEmployee: Employee = {
+  firstName: "John",
+  lastName: "Doe",
+  age: 30,
+}
+
+//while interface are commonly used to define the structure of objects, they can also be used to define the structure of classes. This allows you to create a contract that classes must adhere to, ensuring that they implement the required properties and methods.
+
+//interface for function
+interface MathOperation{
+  (x: number, y: number): number;
+}
+
+const add: MathOperation = (a, b) => a+ b;
+const subtract: MathOperation = (a, b) => a-b;
+
+console.log(add(5, 3)); // Output: 8
+console.log(subtract(5, 3)); // Output: 2
+
+
+// interface for classes
+interface vehicle {
+  start(): void;
+  stop(): void;
+} 
+
+class Car implements vehicle {
+  start() {
+    console.log("Car started.");
+  }
+  stop() {
+    console.log("Car stopped.");
+  }
+}
+
+const myCar = new Car();
+myCar.start(); // Output: Car started.
+myCar.stop(); // Output: Car stopped.
+
+interface Computer{
+  brand: string;
+  model: string;
+  start(): void;
+  stop(): void;
+}
+
+const computerExample: Computer = {
+  brand: "Apple",
+  model: "MacBook Pro",
+  start() {
+    console.log("Computer started.");
+  },
+  stop() {
+    console.log("Computer stopped.");
+  }
+}
+console.log(computerExample.brand); // Output: Apple
+console.log(computerExample.model); // Output: MacBook Pro
+
+//readonly interface
+interface Movie {
+  readonly name: string;
+  rating: number;
+  genra?: string;
+   
+}
+
+const movie: Movie = {
+  name: "Inception",
+  rating: 8.8,
+  genra: "Sci-Fi"
+
+}
+
+console.log(movie.name); // Output: Inception
+console.log(movie.rating); // Output: 8.8
+
+
+interface MoiveDetails {
+  readonly name: string;
+  rating: number;
+  printMoiveInfo(name: string, price: number, ratings: number): string | number;
+}
+
+interface MovieGenra extends MoiveDetails {
+  genra: string;
+}
+
+const movie1: MovieGenra = {
+  name: "star wars",
+  rating: 8.5,
+  printMovieInfo(
+    name: string,
+    price: number,
+    ratings: number
+  ): string | number {
+    return `Movie Name: ${name}, Price: ${price}, Ratings: ${ratings}`;
+  }
+}
+
+const movieInfo = movie1.printMovieInfo("Star Wars", 20, 8.5);
+console.log(movieInfo); // Output: Movie Name: Star Wars, Price: 20, Ratings: 8.5
+
+//Declaration Merging -> is a feature in TypeScript that allows you to define multiple declarations for the same entity, such as an interface or a module. This means that you can extend or augment existing declarations without modifying the original code. Declaration merging is useful for adding new properties or methods to existing interfaces or modules, allowing you to create more flexible and reusable code.
 
