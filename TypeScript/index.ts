@@ -365,3 +365,82 @@ let person10 = new Person10("John", 25);
 person10.greet(); // Output: Hello, my name is John and I am 25 years old.
 
 //Access Modifiers -> are keywords that control the visibility and accessibility of class members (properties and methods). TypeScript provides three access modifiers: public, private, and protected.
+//Public-> members marked as public can be accessed from anywhere, both inside and outside the class. This is the default access modifier if none is specified.
+ class Person11{
+  public name: string;
+  public age: number;
+
+  constructor(name: string, age: number){
+    this.name = name;
+    this.age = age;
+  }
+  greet(){
+    console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
+  }
+}
+
+let person11 = new Person11("John", 25);
+person11.greet(); // Output: Hello, my name is John and I am 25 years old.
+
+
+class Human{
+  public firstname: string;
+  public lastname: string;
+
+  constructor(firstname: string, lastname: string){
+    this.firstname = firstname;
+    this.lastname = lastname;
+  }
+}
+let human = new Human("John", "Doe");
+console.log(human.firstname); // Output: John
+
+//Private-> members marked as private can only be accessed from within the class itself. They are not accessible from outside the class or from derived classes. This is useful for encapsulating data and preventing external code from modifying it directly.
+class Person12{
+  private name: string;
+  private age: number;
+
+  constructor(name: string, age: number){
+    this.name = name;
+    this.age = age;
+  }
+  greet(){
+    console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
+  }
+}
+
+let person12 = new Person12("John", 25);
+console.log(person12.name); // Error: Property 'name' is private and only accessible within class 'Person12'.
+person12.greet(); // Output: Hello, my name is John and I am 25 years old.
+
+//Protected-> members marked as protected can be accessed from within the class and from derived classes (subclasses). They are not accessible from outside the class hierarchy. This is useful for creating base classes that can be extended by other classes while still protecting certain members.
+class Person13{
+  protected name: string;
+  protected age: number;
+
+  constructor(name: string, age: number){
+    this.name = name;
+    this.age = age;
+  }
+  greet(){
+    console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
+  }
+}
+class Student extends Person13{
+  private studentId: number;
+
+  constructor(name: string, age: number, studentId: number){
+    super(name, age);
+    this.studentId = studentId;
+  }
+  greet(){
+    console.log(`Hello, my name is ${this.name} and I am ${this.age} years old. My student ID is ${this.studentId}.`);
+  }
+}
+let student = new Student("John", 25, 12345);
+console.log(student.name); // Error: Property 'name' is protected and only accessible within class 'Person13' and its subclasses.
+student.greet(); // Output: Hello, my name is John and I am 25 years old. My student ID is 12345
+
+
+
+
