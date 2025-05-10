@@ -850,7 +850,7 @@ exampleFunction(10); // Output: Number value: 10.00
 //instaceof Operator
 class Dog{
   bark(): void{
-    console
+    console.log
   }
 }
 
@@ -861,7 +861,7 @@ class Cat{
 }
 
 //example function with instanceof operator type guard
-function animalSound(animal: Dong | Cat): void {
+function animalSound(animal: Dog | Cat): void {
   if(animal instanceof Dog){
     // within this block, typescript knows that animal is a Dog
     animal.bark();
@@ -878,3 +878,27 @@ const dog = new Dog();
 const cat = new Cat();
 animalSound(dog); // Output: Woof
 animalSound(cat); // Output: Meow
+
+//Intersection Types -> are a way to combine multiple types into a single type. This allows you to create more complex types that can have properties from multiple types. Intersection types are created using the & operator.
+type Employee =  {
+  id: number;
+  name: string;
+}
+type Manager = {
+  department: string;
+  role: string;
+}
+
+type ManagerWithEmployeeInfo = Employee & Manager; // Intersection type
+const manager: ManagerWithEmployeeInfo = {
+  id: 1,
+  name: "John",
+  department: "Sales",
+  role: "Manager"
+}
+
+console.log(manager.id); // Output: 1
+console.log(manager.name); // Output: John
+console.log(manager.department); // Output: Sales
+console.log(manager.role); // Output: Manager
+
