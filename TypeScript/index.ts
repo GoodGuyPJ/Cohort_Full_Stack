@@ -821,3 +821,60 @@ const tupleBox = new Box<[string, number]>(["Hello", 10]);
 console.log(stringBox.getContent()); // Output: Hello
 console.log(numberBox.getContent()); // Output: 10
 console.log(booleanBox.getContent()); // Output: true
+
+
+
+//Type Narrowing-> is the process of refining a variable's  type within a conditional block of code. this allows you to write more precise and type-safe code. 
+//Type Guards-> are expressions that perform runtime checks to determine the type of a variable. Type guards can be used to narrow down the type of a variable within a conditional block, allowing you to safely access properties or methods specific to that type.
+//Define a union type
+type MyType = string | number;
+//Example function with type guards
+function exampleFunction(value: MyType): void {
+  //type guard using typeof
+  if(typeof value === "string"){
+    //within this block, typescript knows that value is a string
+    console.log(`String value: ${value.toUpperCase}`);
+  }
+  else if(typeof value === "number"){
+    //within this block, typescript knows that value is a number
+    console.log(`Number value: ${value.toFixed(2)}`);
+  }
+  else{
+    //this block will never be reached because value can only be a string or number
+    console.log("Invalid type");
+  }
+}
+exampleFunction("Hello"); // Output: String value: HELLO
+exampleFunction(10); // Output: Number value: 10.00 
+
+//instaceof Operator
+class Dog{
+  bark(): void{
+    console
+  }
+}
+
+class Cat{
+  meow(): void{
+    console.log("Meow");
+  }
+}
+
+//example function with instanceof operator type guard
+function animalSound(animal: Dong | Cat): void {
+  if(animal instanceof Dog){
+    // within this block, typescript knows that animal is a Dog
+    animal.bark();
+  } else if(animal instanceof Cat){
+    // within this block, typescript knows that animal is a Cat
+    animal.meow();
+  } else {
+    // this block will never be reached because animal can only be a Dog or Cat
+    console.log("Invalid animal");
+  }
+}
+
+const dog = new Dog();
+const cat = new Cat();
+animalSound(dog); // Output: Woof
+animalSound(cat); // Output: Meow
