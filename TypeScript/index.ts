@@ -668,3 +668,156 @@ console.log(movieInfo); // Output: Movie Name: Star Wars, Price: 20, Ratings: 8.
 
 //Declaration Merging -> is a feature in TypeScript that allows you to define multiple declarations for the same entity, such as an interface or a module. This means that you can extend or augment existing declarations without modifying the original code. Declaration merging is useful for adding new properties or methods to existing interfaces or modules, allowing you to create more flexible and reusable code.
 
+interface Car {
+  brand: string;
+  start(): void;
+}
+//declartion merging 
+interface Car{
+  model: string;
+  stop(): void;
+}
+
+//usage of the extended interface
+const myCar1: Car= {
+  brand: "Toyota",
+  model: "Camry",
+  start() {
+    console.log("Car started.");
+  },
+  stop() {
+    console.log("Car stopped.");
+  }
+}
+myCar1.start(); // Output: Car started.
+myCar1.stop(); // Output: Car stopped.
+
+
+//Generics -> allow you to create reusable components that can work with a variety of types. Generics make it possible to define a function, class, or interface that can operate on different types without losing type safety. This allows you to create more flexible and reusable code while still benefiting from TypeScript's type checking.
+
+//Regular function
+const printString = (x: string)=> console.log(x);
+const printNumber = (x: number)=> console.log(x);
+
+console.log(printString("Hello")); // Output: Hello
+console.log(printNumber(10)); // Output: 10
+
+//Generic function
+function printInfo<T>(x: T): T {
+  return x;
+}
+const stringInfo = printInfo<string>("Hello");
+const numberInfo = printInfo<number>(10);
+const booleanInfo = printInfo<boolean>(true);
+
+function uniqueDataTypeFunc<Type>(item: Type, defaultValue: Type): [Type, Type] {
+  return [item, defaultValue];
+}
+
+const stringData = uniqueDataTypeFunc<string>("Hello", "World");
+const numberData = uniqueDataTypeFunc<number>(10, 20);  
+const booleanData = uniqueDataTypeFunc<boolean>(true, false);
+
+console.log(stringData); // Output: [ 'Hello', 'World' ]
+
+interface Dog {
+  name: string;
+  bread: string;
+}
+
+const dog1 = uniqueDataTypeFunc<Dog>(
+  { name: "Buddy", bread: "Golden Retriever" }
+);
+
+console.log(dog1); // Output: [ { name: 'Buddy', bread: 'Golden Retriever' }, { name: 'Max', bread: 'Labrador' } ]
+
+
+function getRandomKey<T>(obj: {  [key: string]: T }): {
+  key: string;
+  value: T;
+} {
+  const keys = Object.keys(obj)
+  const randKey = keys[Math.floor(Math.random() * keys.length)];
+  return{ key: randKey, value: obj[randKey] };
+}
+
+const stringObject = {
+  a: "Hello",
+  b: "World",
+  c: "TypeScript",
+}
+
+getRandomKey<string>(stringObject); // Output: { key: 'b', value: 'World' }
+const numberObject = {
+  a: 1,
+  b: 2,
+  c: 3,
+}
+getRandomKey<number>(numberObject); // Output: { key: 'a', value: 1 }
+
+
+function filterArray<T>(array:T[], condition: (item: T) => boolean ): T[] {
+  return array.filter((item)=> condition(item));
+}
+
+const numbersArray = [1, 2, 3, 4, 5];
+const evenNumbers = filterArray<number>(numbersArray, (num) => num % 2 === 0);
+const oddNumbers = filterArray<number>(numbersArray, (num) => num % 2 !== 0);
+const stringsArray = ["apple", "banana", "cherry"];
+const filteredStrings = filterArray<string>(stringsArray, (str) => str.startsWith("a"));
+
+
+interface Gruit {
+  name: string;
+  color: string;
+}
+const fruits: Gruit[] = [
+  { name: "Apple", color: "Red" },
+  { name: "Banana", color: "Yellow" },
+  { name: "Grapes", color: "Purple" },
+];
+
+const redFruits = filterArray<Gruit>(fruits, (fruit) => fruit.color === "Red");
+const yellowFruits = filterArray<Gruit>(fruits, (fruit) => fruit.color === "Yellow");
+
+console.log(redFruits); // Output: [ { name: 'Apple', color: 'Red' } ]
+console.log(yellowFruits); // Output: [ { name: 'Banana', color: 'Yellow' } ]
+
+
+function reversePair<T, U>(pair: [T, U]): [U, T] {
+  return [pair[1], pair[0]];
+}
+
+const pair1 = [1, "Hello"];
+const reversedPair1 = reversePair<number, string>(pair1);
+const pair2 = ["TypeScript", true];
+const reversedPair2 = reversePair<string, boolean>(pair2);
+console.log(reversedPair1); // Output: [ 'Hello', 1 ]
+console.log(reversedPair2); // Output: [ true, 'TypeScript' ]
+
+
+class Box<T> {
+  private content: T;
+
+  constructor(initalContent: T){
+    this.content = initalContent;
+  }
+
+  getContent(): T{
+    return this.content;
+  }
+  setContent(newContent: T): void {
+    this.content = newContent;
+  }
+}
+
+const stringBox = new Box<string>("Hello");
+const numberBox = new Box<number>(10);
+const booleanBox = new Box<boolean>(true);
+const objectBox = new Box<{ name: string; age: number }>({ name: "John", age: 25 });
+const arrayBox = new Box<number[]>([1, 2, 3, 4, 5]);
+const tupleBox = new Box<[string, number]>(["Hello", 10]);
+
+console.log(stringBox.getContent()); // Output: Hello
+console.log(numberBox.getContent()); // Output: 10
+console.log(booleanBox.getContent()); // Output: true
