@@ -11,16 +11,21 @@ import { ImAmazon } from "react-icons/im";
 import { ImBrightnessContrast } from "react-icons/im";
 import { ImCool } from "react-icons/im";
 import { FaBeerMugEmpty } from "react-icons/fa6";
+import LearnUseState from "./components/LearnUseState";
+import ComponentOneUseState from "./components/ComponentOneUseState";
+import { useState } from "react";
+import ArrowFunUseState from "./components/ArrowFunUseState";
 
 function App() {
+  const [count, setCount] = useState(0);
+
   return (
     <section className="root">
       {/* <Greet /> */}
       {/* <UserList /> */}
       {/* <Props /> */}
       {/* <ConditionStatments isValid={true} /> */}
-
-      <h1
+      {/* <h1
         style={{
           color: "red",
           backgroundColor: "Blue",
@@ -31,10 +36,9 @@ function App() {
         }}
       >
         Inline styles
-      </h1>
-
+      </h1> */}
       {/* React Icons */}
-      <h3>React Icons: Examples</h3>
+      {/* <h3>React Icons: Examples</h3>
       <div style={{ fontSize: "100px", padding: "20px" }}>
         <ImAmazon style={{ fontSize: "100px", padding: "20px" }} />
         <ImBrightnessContrast style={{ fontSize: "100px", padding: "20px" }} />
@@ -48,7 +52,18 @@ function App() {
             <FaBeerMugEmpty onClick={() => alert("chears boys")} />
           </p>
         </h2>
-      </div>
+      </div> */}
+
+      {/* Time: 1:47 */}
+
+      {/* <LearnUseState />
+
+      <ComponentOneUseState
+        count={count}
+        onClickHandler={() => setCount(count + 1)}
+      /> */}
+
+      <ArrowFunUseState />
     </section>
   );
 }
