@@ -2,11 +2,13 @@
 import "./index.css";
 
 import Greet from "./components/Greet";
+import UserList from "./components/UserList";
 
 function App() {
   return (
-    <section className="root" style={{ background: "red" }}>
-      <Greet />
+    <section className="root">
+      {/* <Greet /> */}
+      <UserList />
     </section>
   );
 }
