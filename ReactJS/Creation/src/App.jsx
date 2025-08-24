@@ -15,6 +15,7 @@ import LearnUseState from "./components/LearnUseState";
 import ComponentOneUseState from "./components/ComponentOneUseState";
 import { useState } from "react";
 import ArrowFunUseState from "./components/ArrowFunUseState";
+import TodoList from "./components/TodoList";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -63,7 +64,9 @@ function App() {
         onClickHandler={() => setCount(count + 1)}
       /> */}
 
-      <ArrowFunUseState />
+      {/* <ArrowFunUseState /> */}
+
+      <TodoList />
     </section>
   );
 }
