@@ -16,6 +16,8 @@ import ComponentOneUseState from "./components/ComponentOneUseState";
 import { useState } from "react";
 import ArrowFunUseState from "./components/ArrowFunUseState";
 import TodoList from "./components/TodoList";
+import CopyInputPortal from "./components/CopyInputPortal";
+
 
 function App() {
   const [count, setCount] = useState(0);
@@ -66,7 +68,14 @@ function App() {
 
       {/* <ArrowFunUseState /> */}
 
-      <TodoList />
+      {/* <TodoList /> */}
+
+      {/* 2:34 */}
+      
+      <CopyInputPortal />
+        
+
+
     </section>
   );
 }
