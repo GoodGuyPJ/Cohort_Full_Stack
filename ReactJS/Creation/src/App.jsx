@@ -13,17 +13,29 @@ import { ImCool } from "react-icons/im";
 import { FaBeerMugEmpty } from "react-icons/fa6";
 import LearnUseState from "./components/LearnUseState";
 import ComponentOneUseState from "./components/ComponentOneUseState";
-import { useState } from "react";
+import { createContext, useState } from "react";
 import ArrowFunUseState from "./components/ArrowFunUseState";
 import TodoList from "./components/TodoList";
 import CopyInputPortal from "./components/CopyInputPortal";
 import BasicUseEffect from "./components/BasicUseEffect";
 import PropDrillingA from "./components/PropDrillingA";
 
+// export const Data = createContext();
+
+export const ProductData = createContext();
+
 function App() {
   const [count, setCount] = useState(0);
 
-    const name = "PKJ";
+  const name = "PKJ"; //-> context API
+
+  const productData = {
+    id: "1",
+    name: "Blue Shirt",
+    brand: "Jack and Jones",
+    size: "S/M/XL",
+  };
+
   return (
     <section className="root">
       {/* <Greet /> */}
@@ -78,10 +90,17 @@ function App() {
       {/* <BasicUseEffect /> */}
 
       {/* PropDrilling */}
-      
-      <PropDrillingA name={name} />
 
+      {/* <PropDrillingA name={name} /> */}
 
+      {/* context API */}
+      {/* <Data.Provider value={name}>
+        <PropDrillingA />
+      </Data.Provider> */}
+
+      <ProductData.Provider value={productData}>
+        <PropDrillingA />
+      </ProductData.Provider>
     </section>
   );
 }

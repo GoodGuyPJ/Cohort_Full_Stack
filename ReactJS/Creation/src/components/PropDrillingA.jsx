@@ -1,14 +1,27 @@
-import React from 'react'
+// import React from 'react'
+// import PropDrillingB from "./PropDrillingB";
+
+// const PropDrillingA = ({name}) => {
+
+//   return (
+//     <div>
+//       <PropDrillingB name={name} />
+//     </div>
+//   )
+// }
+
+// export default PropDrillingA
+
+//Context binding
+import React from "react";
 import PropDrillingB from "./PropDrillingB";
 
-
-const PropDrillingA = ({name}) => {
-    
+const PropDrillingA = () => {
   return (
     <div>
-      <PropDrillingB name={name} />
+      <PropDrillingB />
     </div>
-  )
-}
+  );
+};
 
-export default PropDrillingA
+export default PropDrillingA;
