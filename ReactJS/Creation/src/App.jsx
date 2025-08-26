@@ -19,6 +19,9 @@ import TodoList from "./components/TodoList";
 import CopyInputPortal from "./components/CopyInputPortal";
 import BasicUseEffect from "./components/BasicUseEffect";
 import PropDrillingA from "./components/PropDrillingA";
+import UseContextHook from "./components/UseContextHook";
+import { UserContextEx } from "./components/UserContextEx";
+import UserProfileUpdateUserContextEx from "./components/UserProfileUpdateUserContextEx";
 
 // export const Data = createContext();
 
@@ -98,9 +101,19 @@ function App() {
         <PropDrillingA />
       </Data.Provider> */}
 
-      <ProductData.Provider value={productData}>
+      {/* <ProductData.Provider value={productData}>
         <PropDrillingA />
-      </ProductData.Provider>
+      </ProductData.Provider> */}
+
+      {/* useContext Hook */}
+
+      {/* <ProductData.Provider value={productData}>
+        <UseContextHook />
+      </ProductData.Provider> */}
+
+      <UserContextEx>
+        <UserProfileUpdateUserContextEx />
+      </UserContextEx>
     </section>
   );
 }
