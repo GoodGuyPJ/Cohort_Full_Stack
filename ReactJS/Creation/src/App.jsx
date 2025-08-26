@@ -17,7 +17,7 @@ import { useState } from "react";
 import ArrowFunUseState from "./components/ArrowFunUseState";
 import TodoList from "./components/TodoList";
 import CopyInputPortal from "./components/CopyInputPortal";
-
+import BasicUseEffect from "./components/BasicUseEffect";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -71,11 +71,9 @@ function App() {
       {/* <TodoList /> */}
 
       {/* 2:34 */}
-      
-      <CopyInputPortal />
-        
 
-
+      {/* <CopyInputPortal /> */}
+      <BasicUseEffect />
     </section>
   );
 }
