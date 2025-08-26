@@ -18,10 +18,12 @@ import ArrowFunUseState from "./components/ArrowFunUseState";
 import TodoList from "./components/TodoList";
 import CopyInputPortal from "./components/CopyInputPortal";
 import BasicUseEffect from "./components/BasicUseEffect";
+import PropDrillingA from "./components/PropDrillingA";
 
 function App() {
   const [count, setCount] = useState(0);
 
+    const name = "PKJ";
   return (
     <section className="root">
       {/* <Greet /> */}
@@ -73,7 +75,13 @@ function App() {
       {/* 2:34 */}
 
       {/* <CopyInputPortal /> */}
-      <BasicUseEffect />
+      {/* <BasicUseEffect /> */}
+
+      {/* PropDrilling */}
+      
+      <PropDrillingA name={name} />
+
+
     </section>
   );
 }
