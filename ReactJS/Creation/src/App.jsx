@@ -13,7 +13,7 @@ import { ImCool } from "react-icons/im";
 import { FaBeerMugEmpty } from "react-icons/fa6";
 import LearnUseState from "./components/LearnUseState";
 import ComponentOneUseState from "./components/ComponentOneUseState";
-import { createContext, useState } from "react";
+import { createContext, useReducer, useState } from "react";
 import ArrowFunUseState from "./components/ArrowFunUseState";
 import TodoList from "./components/TodoList";
 import CopyInputPortal from "./components/CopyInputPortal";
@@ -22,13 +22,37 @@ import PropDrillingA from "./components/PropDrillingA";
 import UseContextHook from "./components/UseContextHook";
 import { UserContextEx } from "./components/UserContextEx";
 import UserProfileUpdateUserContextEx from "./components/UserProfileUpdateUserContextEx";
+import UseReducerHook from "./components/UseReducerHook";
 
 // export const Data = createContext();
 
 export const ProductData = createContext();
 
+const initialState = { count: 0 };
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "increment":
+      return { ...state, count: state.count + 1 };
+
+    case "decrement":
+      return { ...state, count: state.count - 1 };
+    case "reset":
+      return { ...state, count: 0 };
+
+    case "incrementByAmount":
+      return { ...state, count: state.count + action.payload };
+
+    case "reduceByAmount":
+      return { ...state, count: state.count - action.payload };
+    default:
+      return state;
+  }
+};
+
 function App() {
   const [count, setCount] = useState(0);
+
+  const [inputValue, setInputValue] = useState(0);
 
   const name = "PKJ"; //-> context API
 
@@ -38,6 +62,9 @@ function App() {
     brand: "Jack and Jones",
     size: "S/M/XL",
   };
+
+  // useReducer
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   return (
     <section className="root">
@@ -73,47 +100,49 @@ function App() {
           </p>
         </h2>
       </div> */}
-
       {/* Time: 1:47 */}
-
       {/* <LearnUseState />
 
       <ComponentOneUseState
         count={count}
         onClickHandler={() => setCount(count + 1)}
       /> */}
-
       {/* <ArrowFunUseState /> */}
-
       {/* <TodoList /> */}
-
       {/* 2:34 */}
-
       {/* <CopyInputPortal /> */}
       {/* <BasicUseEffect /> */}
-
       {/* PropDrilling */}
-
       {/* <PropDrillingA name={name} /> */}
-
       {/* context API */}
       {/* <Data.Provider value={name}>
         <PropDrillingA />
       </Data.Provider> */}
-
       {/* <ProductData.Provider value={productData}>
         <PropDrillingA />
       </ProductData.Provider> */}
-
       {/* useContext Hook */}
-
       {/* <ProductData.Provider value={productData}>
         <UseContextHook />
       </ProductData.Provider> */}
 
-      <UserContextEx>
+      {/* useContext api  */}
+      {/* <UserContextEx>
         <UserProfileUpdateUserContextEx />
-      </UserContextEx>
+      </UserContextEx> */}
+
+      {/*  */}
+      {/* UseReducer */}
+
+      <h1> Counter: {state.count} </h1>
+      <button onClick={() => dispatch({ type: "increment" })}>Increment</button>
+
+      <button onClick={() => dispatch({ type: "decrement" })}>Decrement</button>
+
+      <button onClick={() => dispatch({ type: "reset" })}>Reset</button>
+
+      <UseReducerHook />
+      {/*  */}
     </section>
   );
 }
