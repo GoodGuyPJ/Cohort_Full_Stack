@@ -24,6 +24,7 @@ import { UserContextEx } from "./components/UserContextEx";
 import UserProfileUpdateUserContextEx from "./components/UserProfileUpdateUserContextEx";
 import UseReducerHook from "./components/UseReducerHook";
 import UseRefHook from "./components/UseRefHook";
+import UseFetch from "./components/UseFetch";
 
 // export const Data = createContext();
 
@@ -66,6 +67,9 @@ function App() {
 
   // useReducer
   const [state, dispatch] = useReducer(reducer, initialState);
+
+  //useFectch
+  const [data] = UseFetch("https://jsonplaceholder.typicode.com/todos");
 
   return (
     <section className="root">
@@ -146,9 +150,16 @@ function App() {
       {/*  */}
 
       {/* useRef */}
-      <UseRefHook />
+      {/* <UseRefHook /> */}
 
-      
+      {/* Custom Hooks */}
+
+      <div>
+        {data &&
+          data.map((item) => {
+            return <p key={item.id}>{item.title}</p>;
+          })}
+      </div>
     </section>
   );
 }
