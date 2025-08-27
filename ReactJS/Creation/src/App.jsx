@@ -23,6 +23,7 @@ import UseContextHook from "./components/UseContextHook";
 import { UserContextEx } from "./components/UserContextEx";
 import UserProfileUpdateUserContextEx from "./components/UserProfileUpdateUserContextEx";
 import UseReducerHook from "./components/UseReducerHook";
+import UseRefHook from "./components/UseRefHook";
 
 // export const Data = createContext();
 
@@ -134,15 +135,20 @@ function App() {
       {/*  */}
       {/* UseReducer */}
 
-      <h1> Counter: {state.count} </h1>
+      {/* <h1> Counter: {state.count} </h1>
       <button onClick={() => dispatch({ type: "increment" })}>Increment</button>
 
       <button onClick={() => dispatch({ type: "decrement" })}>Decrement</button>
 
       <button onClick={() => dispatch({ type: "reset" })}>Reset</button>
 
-      <UseReducerHook />
+      <UseReducerHook /> */}
       {/*  */}
+
+      {/* useRef */}
+      <UseRefHook />
+
+      
     </section>
   );
 }
