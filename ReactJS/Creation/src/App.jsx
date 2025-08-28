@@ -25,6 +25,7 @@ import UserProfileUpdateUserContextEx from "./components/UserProfileUpdateUserCo
 import UseReducerHook from "./components/UseReducerHook";
 import UseRefHook from "./components/UseRefHook";
 import UseFetch from "./components/UseFetch";
+import UniqueID from "./components/UniqueID";
 
 // export const Data = createContext();
 
@@ -154,12 +155,16 @@ function App() {
 
       {/* Custom Hooks */}
 
-      <div>
+      {/* <div>
         {data &&
           data.map((item) => {
             return <p key={item.id}>{item.title}</p>;
           })}
-      </div>
+      </div> */}
+
+      {/* useId */}
+
+      <UniqueID />
     </section>
   );
 }
