@@ -3,6 +3,7 @@ import Counter from "./components/Counter";
 import Todos from "./components/Todos";
 import Calculator from "./components/Calculator";
 import ToggleBackgroundColor from "./components/ToggleBackgroundColor";
+import HiddenSearchBar from "./components/HiddenSearchBar";
 
 const App = () => {
   return (
@@ -10,7 +11,8 @@ const App = () => {
       {/* <Counter /> */}
       {/* <Todos /> */}
       {/* <Calculator /> */}
-      <ToggleBackgroundColor />
+      {/* <ToggleBackgroundColor /> */}
+      <HiddenSearchBar />
     </div>
   );
 };
