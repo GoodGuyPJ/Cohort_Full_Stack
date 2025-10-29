@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Daily Diary — Page Diary + Calendar</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <aside id="drawer" class="drawer closed">
+      <div class="drawer-header">
+        <h3>Diary Drawer</h3>
+        <button id="closeDrawer">✕</button>
+      </div>
+      <div class="drawer-body">
+        <input type="date" id="jumpDate" />
+        <button id="goToDate">Go</button>
+
+        <h4>Recent Dates</h4>
+        <ul id="recentDates"></ul>
+
+        <h4>Pages</h4>
+        <ul id="pageList"></ul>
+      </div>
+    </aside>
+
+    <main>
+      <header>
+        <button id="openDrawer">☰</button>
+        <h1>Daily Diary</h1>
+        <div class="right-controls">
+          <input type="month" id="monthPicker" />
+          <button id="openCalendar">Calendar</button>
+        </div>
+      </header>
+
+      <section class="date-bar">
+        <button id="prevDate">←</button>
+        <div id="dateLabel"></div>
+        <button id="nextDate">→</button>
+      </section>
+
+      <section class="editor-area">
+        <div class="page-controls">
+          <span id="pageInfo">Page 1</span>
+          <button id="newPageBtn">+ New Page</button>
+          <button id="deletePageBtn">Delete Page</button>
+          <span class="charCounter" id="charCounter">0 / 1200</span>
+        </div>
+
+        <textarea id="pageEditor" placeholder="Write your diary here..."></textarea>
+
+        <div class="bottom-controls">
+          <input id="tags" placeholder="Tags / emojis e.g. 💻, 🏋️" />
+          <button id="saveBtn">Save</button>
+        </div>
+      </section>
+
+      <section id="calendarModal" class="modal hidden">
+        <div class="modal-content">
+          <h3 id="calendarTitle">Calendar</h3>
+          <div id="calendarGrid"></div>
+          <button id="closeCalendar">Close</button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

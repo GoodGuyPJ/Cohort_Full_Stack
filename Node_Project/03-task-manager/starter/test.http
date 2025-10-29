@@ -1,0 +1,20 @@
+ ### controllers Task TEST endpoint ###
+GET http://localhost:4004/api/v1/tasks/7
+
+### Post
+POST http://localhost:4004/api/v1/tasks/
+Content-Type: application/json
+
+{
+  "name": "New Task from Test",
+  "completed": false
+}
+
+### Update
+
+PATCH http://localhost:4004/api/v1/tasks/68f892ab2e5c890e581ba0ff
+Content-Type: application/json
+
+{
+  "completed": false
+}
